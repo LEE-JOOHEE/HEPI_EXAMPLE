@@ -1,0 +1,59 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+body{
+    background-color: #f0ffff;
+    font-family: 'NanumSquare', sans-serif;
+}
+.container-fluid {
+    background-color: #f0ffff;
+    margin: 0;
+    height: 100%;
+}
+
+h3{
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #1c4f7b;
+}
+h4{
+    font-weight: 700;
+}
+.noti_h4{
+    font-weight: 700;
+    color: #f0ffff; text-shadow: 2px 2px 2px gray;
+}
+h5{
+    font-weight: 700;
+}
+h5 > strong{
+    font-size: 16px;
+    color: red; 
+    /* text-shadow: 1px 1px 1px #f0ffff; */
+    /* text-decoration: underline; */
+}
+
+svg { 
+    background: #f0ffff !important;
+}
+.charts{
+    margin-top: -10px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: #eee;
+}
+
+.table {height: 500px; overflow: auto;}
+table th { text-align: center; cursor: pointer; background-color: #eee;}
+table td { text-align: center;}
+
+.noti{
+    width: 100px; height: 20px; border:1px solid red; margin-right: 15px;
+}
+.margin_bottom_20{
+    margin-bottom: 20px;
+}
+.noti_border{
+    background-color: skyblue; padding: 10px 20px; margin-top: 30px; border-radius: 10px;
+}

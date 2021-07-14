@@ -1,0 +1,398 @@
+[
+   {
+      "name_kor":"동력/전등/전열 메인",
+      "actPower":"1,078.28 ",
+      "voltage":"23,518.35 ",
+      "electric":26.93,
+      "appPower":"1,094.25 ",
+      "powerFactor":0.98,
+      "value":1
+   },
+   {
+      "name_kor":"2000KVA(220V) TR 메인",
+      "actPower":"1,128.82 ",
+      "voltage":"23,305.62 ",
+      "electric":28.29,
+      "appPower":"1,141.78 ",
+      "powerFactor":0.98,
+      "value":1
+   },
+   {
+      "name_kor":"1000KVA(380V) TR 메인",
+      "actPower":"1,105.63 ",
+      "voltage":"23,286.48 ",
+      "electric":27.90,
+      "appPower":"1,116.62 ",
+      "powerFactor":0.98,
+      "value":1
+   },
+   {
+      "name_kor":"200HP COMP 1호기",
+      "actPower":"1,119.93 ",
+      "voltage":"23,252.55 ",
+      "electric":28.13,
+      "appPower":"1,141.64 ",
+      "powerFactor":0.98,
+      "value":1
+   },
+   {
+      "name_kor":"200HP COMP 2호기",
+      "actPower":"1,210.05 ",
+      "voltage":"23,063.27 ",
+      "electric":30.49,
+      "appPower":"1,218.75 ",
+      "powerFactor":0.99,
+      "value":1
+   },
+   {
+      "name_kor":"1000KVA(220V) TR 메인",
+      "actPower":"1,196.03 ",
+      "voltage":"23,180.63 ",
+      "electric":29.92,
+      "appPower":"1,205.39 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"300KVA(220V) TR 메인",
+      "actPower":"1,201.85 ",
+      "voltage":"23,056.95 ",
+      "electric":30.25,
+      "appPower":"1,210.46 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"500KVA(220V) TR 메인",
+      "actPower":"1,163.26 ",
+      "voltage":"23,200.40 ",
+      "electric":29.13,
+      "appPower":"1,177.34 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"600KVA(575V) TR 메인",
+      "actPower":"1,185.47 ",
+      "voltage":"23,230.63 ",
+      "electric":29.61,
+      "appPower":"1,188.82 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"800KVA(220V) TR",
+      "actPower":"1,128.13 ",
+      "voltage":"23,371.87 ",
+      "electric":28.07,
+      "appPower":"1,144.33 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"사처리 라인",
+      "actPower":"1,229.20 ",
+      "voltage":"23,183.25 ",
+      "electric":30.65,
+      "appPower":"1,238.44 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"COMP 메인",
+      "actPower":"1,285.99 ",
+      "voltage":"23,103.38 ",
+      "electric":32.46,
+      "appPower":"1,295.03 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"외주공장 변전실",
+      "actPower":"1,271.55 ",
+      "voltage":"23,043.11 ",
+      "electric":31.92,
+      "appPower":"1,279.62 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"기계공장 변전실",
+      "actPower":"1,286.55 ",
+      "voltage":"23,064.78 ",
+      "electric":32.30,
+      "appPower":"1,295.78 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"800HP 고압전동기",
+      "actPower":"1,300.99 ",
+      "voltage":"23,284.78 ",
+      "electric":32.30,
+      "appPower":"1,318.74 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"건옥집진기",
+      "actPower":"1,248.23 ",
+      "voltage":"23,347.44 ",
+      "electric":30.94,
+      "appPower":"1,259.49 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"3 TON 전기로",
+      "actPower":"1,427.07 ",
+      "voltage":"23,064.91 ",
+      "electric":36.07,
+      "appPower":"1,435.48 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"1 TON 전기로",
+      "actPower":"1,387.63 ",
+      "voltage":"23,100.58 ",
+      "electric":34.86,
+      "appPower":"1,398.70 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"가우징/용접 변전실(용접)",
+      "actPower":"1,516.20 ",
+      "voltage":"23,450.82 ",
+      "electric":37.86,
+      "appPower":"1,539.40 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"100HP COMP(3300V)",
+      "actPower":"1,463.30 ",
+      "voltage":"23,201.50 ",
+      "electric":37.20,
+      "appPower":"1,476.99 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"250HP COMP(3300V)",
+      "actPower":"1,501.90 ",
+      "voltage":"23,227.54 ",
+      "electric":37.95,
+      "appPower":"1,531.06 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"350HP COMP(3300V)",
+      "actPower":"1,251.14 ",
+      "voltage":"23,339.00 ",
+      "electric":31.01,
+      "appPower":"1,256.43 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"30 TON 쇼트기",
+      "actPower":"1,349.31 ",
+      "voltage":"23,053.23 ",
+      "electric":33.89,
+      "appPower":"1,351.68 ",
+      "powerFactor":1.00,
+      "value":0
+   },
+   {
+      "name_kor":"10 TON 전기 열처리로",
+      "actPower":"950.54 ",
+      "voltage":"23,059.24 ",
+      "electric":23.84,
+      "appPower":"958.46 ",
+      "powerFactor":1.00,
+      "value":0
+   },
+   {
+      "name_kor":"소형 샌딩기",
+      "actPower":"1,080.36 ",
+      "voltage":"23,236.11 ",
+      "electric":27.01,
+      "appPower":"1,075.45 ",
+      "powerFactor":1.00,
+      "value":0
+   },
+   {
+      "name_kor":"대형 생딩기",
+      "actPower":"1,083.14 ",
+      "voltage":"23,129.90 ",
+      "electric":26.87,
+      "appPower":"1,094.30 ",
+      "powerFactor":1.00,
+      "value":0
+   },
+   {
+      "name_kor":"건옥 B라인 집진설비",
+      "actPower":"1,210.32 ",
+      "voltage":"23,135.57 ",
+      "electric":30.27,
+      "appPower":"1,218.93 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"건옥 C라인 집진설비",
+      "actPower":"2,488.67 ",
+      "voltage":"23,510.96 ",
+      "electric":61.88,
+      "appPower":"2,514.88 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"세광 쇼트기",
+      "actPower":"2,888.28 ",
+      "voltage":"23,124.25 ",
+      "electric":74.27,
+      "appPower":"2,956.76 ",
+      "powerFactor":0.98,
+      "value":0
+   },
+   {
+      "name_kor":"경성 쇼트기",
+      "actPower":"3,021.85 ",
+      "voltage":"23,223.14 ",
+      "electric":75.85,
+      "appPower":"3,062.68 ",
+      "powerFactor":0.99,
+      "value":0
+   },
+   {
+      "name_kor":"탈사용 5톤 행거쇼트기",
+      "actPower":"4,002.26 ",
+      "voltage":"23,330.78 ",
+      "electric":100.20,
+      "appPower":"4,106.92 ",
+      "powerFactor":0.98,
+      "value":0
+   },
+   {
+      "name_kor":"5톤 행거 쇼트기 1호기",
+      "actPower":"3,869.66 ",
+      "voltage":"23,447.60 ",
+      "electric":97.73,
+      "appPower":"3,986.45 ",
+      "powerFactor":0.97,
+      "value":0
+   },
+   {
+      "name_kor":"5톤 행거 쇼트기 2호기",
+      "actPower":"5,819.60 ",
+      "voltage":"22,914.96 ",
+      "electric":159.12,
+      "appPower":"6,215.55 ",
+      "powerFactor":0.94,
+      "value":0
+   },
+   {
+      "name_kor":"내열 및 징크 도장라인(PB-005)",
+      "actPower":"6,036.48 ",
+      "voltage":"23,083.64 ",
+      "electric":163.40,
+      "appPower":"6,488.77 ",
+      "powerFactor":0.93,
+      "value":0
+   },
+   {
+      "name_kor":"에폭시 도장라인",
+      "actPower":"5,882.09 ",
+      "voltage":"23,203.53 ",
+      "electric":155.87,
+      "appPower":"6,247.49 ",
+      "powerFactor":0.94,
+      "value":0
+   },
+   {
+      "name_kor":"도장건조로",
+      "actPower":"5,899.30 ",
+      "voltage":"23,387.92 ",
+      "electric":158.41,
+      "appPower":"6,377.46 ",
+      "powerFactor":0.93,
+      "value":0
+   },
+   {
+      "name_kor":"PB-003 집진기",
+      "actPower":"5,739.35 ",
+      "voltage":"23,488.07 ",
+      "electric":150.42,
+      "appPower":"6,124.20 ",
+      "powerFactor":0.94,
+      "value":0
+   },
+   {
+      "name_kor":"핸들도장 집진기 1호기(PB-001)",
+      "actPower":"5,740.88 ",
+      "voltage":"23,326.88 ",
+      "electric":149.06,
+      "appPower":"6,104.20 ",
+      "powerFactor":0.94,
+      "value":0
+   },
+   {
+      "name_kor":"핸들도장 집진기 2호기(PB-001)",
+      "actPower":"5,257.56 ",
+      "voltage":"23,368.86 ",
+      "electric":138.56,
+      "appPower":"5,556.75 ",
+      "powerFactor":0.94,
+      "value":0
+   },
+   {
+      "name_kor":"350K 전기로",
+      "actPower":"5,527.06 ",
+      "voltage":"23,688.16 ",
+      "electric":142.00,
+      "appPower":"5,850.68 ",
+      "powerFactor":0.95,
+      "value":0
+   },
+   {
+      "name_kor":"전체 LNG 메인",
+      "actPower":"4,249.11 ",
+      "voltage":"22,929.48 ",
+      "electric":116.54,
+      "appPower":"4,644.60 ",
+      "powerFactor":0.91,
+      "value":0
+   },
+   {
+      "name_kor":"30 TON 열처리로",
+      "actPower":"5,010.67 ",
+      "voltage":"23,229.91 ",
+      "electric":139.91,
+      "appPower":"5,649.60 ",
+      "powerFactor":0.88,
+      "value":0
+   },
+   {
+      "name_kor":"10 TON 열처리로",
+      "actPower":"3,362.86 ",
+      "voltage":"23,504.02 ",
+      "electric":96.33,
+      "appPower":"3,893.41 ",
+      "powerFactor":0.87,
+      "value":0
+   },
+   {
+      "name_kor":"4 TON 열처리로",
+      "actPower":"3,675.83 ",
+      "voltage":"23,700.67 ",
+      "electric":98.68,
+      "appPower":"4,107.33 ",
+      "powerFactor":0.89,
+      "value":0
+   }
+]
