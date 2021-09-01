@@ -1,0 +1,23 @@
+body{margin:0;padding:0;font:12px 굴림, sans-serif;color:#555;line-height:150%;text-align:left;}
+a{text-decoration:none;color:#057fac;}
+a:hover{text-decoration:none;color:#999;}
+#container{width:300px;background:#fff;padding-bottom:20px;border: 1px solid #efefef;margin-left :30px;}
+#title{width:300px;background:#057fac; color:#fff;border-left: 1px solid #efefef;border-top: 1px solid #efefef;
+    border-right: 1px solid #efefef;margin-left:30px;margin-top:30px; padding-left:20px;padding-top:5px;padding-bottom:10px;}
+#content{margin:0 20px;}
+p{margin:0 auto;width:680px;padding:1em 0;}
+* html #tree li{float:left;display:inline;}
+* html #tree, * html #tree ul{height:1%;}
+#tree{background:url(line1.gif) repeat-y;}
+#tree li{line-height:20px;margin-top:1px;position:relative;width:100%;}
+#tree li a{padding-left:28px;}
+#tree li span{float:left;position:absolute;top:5px;left:5px;width:13px;height:13px;cursor:auto;font-size:0;}
+#tree li span, #tree li span.collapsed{background:url(../img/collapsed.gif) no-repeat 0 0;}
+#tree li span.expanded{background:url(../img/expanded.gif) no-repeat 0 0;}
+#tree li ul{margin-left:28px;background:url(../img/line1.gif) repeat-y;}
+#tree li li{background:url(../img/line2.gif) no-repeat 0 0;}
+#tree ul{display:none;}
+#tree, #tree ul, #tree li{margin:0;padding:0;list-style:none;}
+#tree, #tree ul{display:block;}
+#tree, #tree ul{min-height:1%;}
+#tree:after, #tree ul:after{content: ".";display:block;height:0;clear:both;visibility:hidden;}

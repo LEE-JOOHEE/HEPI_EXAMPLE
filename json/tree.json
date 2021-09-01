@@ -1,0 +1,11 @@
+[
+  {"text": "전체보기", "url" : "/status_chart", "children": [
+      {"text": "양산시", "url" : "/status_chart_city", "state": "closed", "children": [
+          {"text": "대한정밀공업", "url" : "/status_chart_place", "c_id": "daehan", "comp_name": "대한정밀공업"},
+          {"text": "태양산업", "url" : "/status_chart_place", "c_id": "taeyang", "comp_name": "태양산업"}
+      ]},
+      {"text": "임실군", "url" : "/status_chart_city", "state": "closed", "children": [
+          {"text": "임실태양광", "url" : "/status_chart_place", "c_id": "imsil", "comp_name": "임실태양광"}
+      ]}
+  ]}
+]
