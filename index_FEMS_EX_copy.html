@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체 저력사용량 및 예상 전기 요금 모니터링</title>
+
+    <!-- 부트스트랩 -->
+    <link href="/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script defer type="text/JavaScript" src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    
+    <!-- air Date Picker -->
+    <link href="/air-datepicker/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <script defer type="text/JavaScript" src="/air-datepicker/dist/js/datepicker.min.js"></script>
+    <script defer type="text/JavaScript" src="/air-datepicker/dist/js/i18n/datepicker.ko.js"></script>
+
+    <!-- selectPicker -->
+    <link href="/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <script defer type="text/JavaScript" src="/bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script defer type="text/JavaScript" src="/bootstrap-select-1.13.14/dist/js/i18n/defaults-ko_KR.min.js"></script>
+
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
+
+    <!-- JUI -->
+    <link rel="stylesheet" href="/jui-all/dist/ui.css" />
+    <link rel="stylesheet" href="/jui-all/dist/ui-jennifer.css" />
+    <script defer type="text/JavaScript" src="/js/jui/jui-ui.min.js"></script>
+    
+    <!-- JUI Chart -->
+    <script type="text/JavaScript" src="/js/jui/jui-core.min.js"></script>
+    <script type="text/JavaScript" src="/js/jui/jui-chart.min.js"></script>
+
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <h3></h3>
+            <div class="col-xs-3">
+                <!-- 탭 -->
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#MAIN1">모니터링</a></li>
+                    <li><a data-toggle="tab" href="#MAIN2">패턴분석</a></li>
+                    <li><a data-toggle="tab" href="#MAIN3">예측현황</a></li>
+                    <li><a data-toggle="tab" href="#MAIN4">진단현황</a></li>
+                </ul>
+            </div>
+            <!-- 공백 -->
+            <div class="col-xs-1"></div>
+            <div class="col-xs-2">
+                <!-- 업체명 -->
+                <select class="selectpicker form-control" data-live-search="true">
+                    <option>피케이밸브</option>
+                    <option>피케이밸브</option>
+                    <option>피케이밸브</option>
+                    <option>피케이밸브</option>
+                    <option>피케이밸브</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <!-- 업체명2 -->
+                <select class="selectpicker form-control" data-live-search="true">
+                    <option>전체</option>
+                    <option>동력/전등/전열 메인</option>
+                    <option>2000KVA(220V) TR 메인</option>
+                    <option>1000KVA(380V) TR 메인</option>
+                    <option>200HP COMP 1호기</option>
+                    <option>200HP COMP 2호기</option>
+                    <option>1000KVA(220V) TR 메인</option>
+                    <option>300KVA(220V) TR 메인</option>
+                    <option>500KVA(220V) TR 메인</option>
+                    <option>600KVA(575V) TR 메인</option>
+                    <option>800KVA(220V) TR</option>
+                    <option>사처리 라인</option>
+                    <option>COMP 메인</option>
+                    <option>외주공장 변전실</option>
+                    <option>기계공장 변전실</option>
+                    <option>800HP 고압전동기</option>
+                    <option>건옥집진기</option>
+                    <option>3 TON 전기로</option>
+                    <option>1 TON 전기로</option>
+                    <option>가우징/용접 변전실(용접)</option>
+                    <option>100HP COMP(3300V)</option>
+                    <option>250HP COMP(3300V)</option>
+                    <option>350HP COMP(3300V)</option>
+                    <option>30 TON 쇼트기</option>
+                    <option>10 TON 전기 열처리로</option>
+                    <option>소형 샌딩기</option>
+                    <option>대형 생딩기</option>
+                    <option>건옥 B라인 집진설비</option>
+                    <option>건옥 C라인 집진설비</option>
+                    <option>세광 쇼트기</option>
+                    <option>경성 쇼트기</option>
+                    <option>탈사용 5톤 행거쇼트기</option>
+                    <option>5톤 행거 쇼트기 1호기</option>
+                    <option>5톤 행거 쇼트기 2호기</option>
+                    <option>내열 및 징크 도장라인(PB-005)</option>
+                    <option>에폭시 도장라인</option>
+                    <option>도장건조로</option>
+                    <option>PB-003 집진기</option>
+                    <option>핸들도장 집진기 1호기(PB-001)</option>
+                    <option>핸들도장 집진기 2호기(PB-001)</option>
+                    <option>350K 전기로</option>
+                    <option>전체 LNG 메인</option>
+                    <option>30 TON 열처리로</option>
+                    <option>10 TON 열처리로</option>
+                    <option>4 TON 열처리로</option>
+                </select>
+            </div>
+            <div class="col-xs-2">
+                <!-- 달력 -->
+                <div>
+                    <input type="text" id="dp" class="datepicker-here form-control" data-date-format="yyyy-mm-dd">
+                </div>
+            </div>
+            <!-- 공백 -->
+            <div class="col-xs-1"></div>
+            <!-- 컨텐츠 -->
+            <div class="col-xs-12" style="margin-top: 20px;">
+                <div class="tab-content">
+                    <div id="MAIN1" class="tab-pane fade in active">
+                        <h3>전체 전력사용량 및 예상 전기 요금 모니터링</h3>
+                        <div class="col-xs-6">
+                            <h4>최근 7일 사용량</h4>
+                            <div id="chart1" class="charts"></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <h4>2021년 전력 사용량</h4>
+                            <div id="chart2" class="charts"></div>
+                        </div>
+                        <div class="col-xs-12 noti_border">
+                            <h5> 이번달 현재까지 예상 전기사용요금은 <strong>약 18,363,590원</strong> 입니다. </h5>
+                        </div>
+                    </div>
+                    <div id="MAIN2" class="tab-pane fade">
+                        <h3>전력사용현황파악을 위한 CBL과 RRMSE 그래프</h3>
+                        <div class="col-xs-6">
+                            <h4>시간대별 전력사용량과 이전 3일 전부터의 CBL 현황 그래프</h4>
+                            <div id="chart3" class="charts"></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <h4>RRMSE 변동성 추이 그래프</h4>
+                            <div id="chart4" class="charts"></div>
+                        </div>
+                        <div class="col-xs-12 noti_border">
+                            <h4 class="noti_h4"><span class="noti"></span>CBL이란?</h4>
+                            <h5 class="margin_bottom_20">ㆍCBL(Customer Base Line Load)의 약자로 수요감축량 산정을 위해 기준이 되는 고객의 평시 사용량을 의미하며 
+                                  해당일 이전의 5일 중 총 감축시간대의 평균 사용량이 높은 4일을 시간대별로 평균하여 산정하는 방식을 사용</h5>
+                            <h4 class="noti_h4"><span class="noti"></span>RRMSE란?</h4>
+                            <h5>ㆍRRMSE(Relative Root Mean Squared Error)의 약자로, 전기소비자의 전기소비형태와 고객기준부하의 정합성을 검증하는 통계방식</h5>
+                            <h5>ㆍ데이터의 전력사용량와 CBL의 차이를 분석하여 RRMSE에 대한 결과가 30%이하로 나와야 전력거래소에 자원으로 등록이 가능함</h5>
+                        </div>
+                    </div>
+                    <div id="MAIN3" class="tab-pane fade">
+                        <h3>전력수요 예측화면 및 과부하 진단 그래프</h3>
+                        <div class="col-xs-6">
+                            <h4>설비별, 전체별 예측 현황</h4>
+                            <div id="chart5" class="charts"></div>
+                        </div>
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-4">
+                            <h4>시간대별 전력설비 현황표</h4>
+                            <div id="table" class="table">
+                                <table class="table table-condensed table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>시간</th>
+                                            <th>유효전력</th>
+                                            <th>전압</th>
+                                            <th>전류</th>
+                                            <th>피상전력</th>
+                                            <th>역률</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="target_time"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="MAIN4" class="tab-pane fade">
+                        <h3>공장 역률진단현황 모니터링</h3>
+                        <div class="col-xs-6">
+                            <h4>설비별, 전체별 예측 현황</h4>
+                            <div id="chart6" class="charts"></div>
+                        </div>
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-4">
+                            <h4>설비별 전력설비 현황표</h4>
+                            <div id="table" class="table">
+                                <table class="table table-condensed table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>설비</th>
+                                            <th>유효전력</th>
+                                            <th>전압</th>
+                                            <th>전류</th>
+                                            <th>피상전력</th>
+                                            <th>역률</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="target_facility"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/JavaScript">
+    // 달력
+    $(function() {
+        $(function () {
+            $(".datepicker-here").datepicker({
+                language: 'ko',
+                autoClose: true
+            });
+        });
+        var dp = $('#dp').datepicker().data('datepicker');
+        dp.selectDate(new Date());
+    });
+
+    // 차트 1
+    graph.ready([ "chart.builder" ], function(builder) {
+        var obj = builder("#chart1", {
+            width: 700,
+            height : 450,
+            theme : "classic",
+            axis : {
+                x : {
+                    type : "block",
+                    domain : [ "07-05", "07-06", "07-07", "07-08", "07-09", "07-10", "07-11", "07-12" ],
+                    line : true,
+                    textRotate : -20,
+                },
+                y : {
+                    type : "range",
+                    domain : [0, 18000],
+                    step : 9,
+                    line : true,
+                    orient : "left"
+                },
+                data : [
+                    { vlaue : 14272.8},
+                    { vlaue : 16419.4},
+                    { vlaue : 15987.1},
+                    { vlaue : 16261.0},
+                    { vlaue : 16836.2},
+                    { vlaue : 11773.2},
+                    { vlaue : 9269.0 },
+                    { vlaue : 4854.7 }
+                ]
+            },
+            brush : [{
+                type : "column",
+                outerPadding : 5,
+                // target : "value"
+            }],
+            widget : [{
+                type: "title",
+                text: "2021년 최근 7일 사용량",
+                orient : "bottom",
+                dy : 18,
+                color : [ "#337ab7" ]
+            },{ type : "tooltip" }]
+        });
+
+        // 차트 2
+        var obj = builder("#chart2", {
+            width: 700,
+            height : 450,
+            theme : "classic",
+            axis : {
+                x : {
+                    type : "block",
+                    domain : [ "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07" ],
+                    line : true,
+                },
+                y : {
+                    type : "range",
+                    domain : [0, 600000],
+                    step : 4,
+                    line : true,
+                    orient : "left"
+                },
+                data : [
+                    { vlaue : 369902.6},
+                    { vlaue : 504626.4},
+                    { vlaue : 455059.7},
+                    { vlaue : 312462.4},
+                    { vlaue : 448352.2},
+                    { vlaue : 582562.8}
+                ]
+            },
+            brush : [{
+                type : "column",
+                outerPadding : 5,
+                colors : [ "#7BBAE7" ]
+            }],
+            widget : [{
+                type: "title",
+                text: "2021년 전력 사용량",
+                orient : "bottom",
+                dy : 18,
+                color : [ "#337ab7" ]
+            },{ type : "tooltip" }]
+        });
+
+        // 차트 3
+        var activeIndex = 0, data = [
+            { "시간" : "00:00", Load : 250, CBL : (250)-50, CBL_1 : (250)+20, CBL_2 : (250)+30, CBL_3 : 220 },
+            { "시간" : "01:00", Load : 150, CBL : (150)-51, CBL_1 : (150)+21, CBL_2 : (150)+31, CBL_3 : 230 },
+            { "시간" : "02:00", Load : 230, CBL : (230)-52, CBL_1 : (230)+22, CBL_2 : (230)+32, CBL_3 : (230)-102 },
+            { "시간" : "03:00", Load : 245, CBL : (245)-53, CBL_1 : (245)+23, CBL_2 : (245)+33, CBL_3 : (245)-103 },
+            { "시간" : "04:00", Load : 230, CBL : (230)-54, CBL_1 : (230)+24, CBL_2 : (230)+34, CBL_3 : (230)-104 },
+            { "시간" : "05:00", Load : 250, CBL : (250)-55, CBL_1 : (250)+25, CBL_2 : (250)+35, CBL_3 : 230 },
+            { "시간" : "06:00", Load : 240, CBL : (240)-56, CBL_1 : (240)+26, CBL_2 : (240)+36, CBL_3 : 250 },
+            { "시간" : "07:00", Load : 230, CBL : (230)-57, CBL_1 : (230)+27, CBL_2 : (230)+37, CBL_3 : 300 },
+            { "시간" : "08:00", Load : 250, CBL : (250)-58, CBL_1 : (250)+28, CBL_2 : (250)+38, CBL_3 : 400 },
+            { "시간" : "09:00", Load : 320, CBL : (320)-59, CBL_1 : (320)+29, CBL_2 : (320)+39, CBL_3 : 450 },
+            { "시간" : "10:00", Load : 360, CBL : (360)-51, CBL_1 : (360)+21, CBL_2 : (360)+31, CBL_3 : 430 },
+            { "시간" : "11:00", Load : 340, CBL : (340)-52, CBL_1 : (340)+22, CBL_2 : (340)+32, CBL_3 : 440 },
+            { "시간" : "12:00", Load : 245, CBL : (245)-53, CBL_1 : (245)+23, CBL_2 : (245)+33, CBL_3 : 300 },
+            { "시간" : "13:00", Load : 290, CBL : (290)-54, CBL_1 : (290)+24, CBL_2 : (290)+34, CBL_3 : 250 },
+            { "시간" : "14:00", Load : 300, CBL : (300)-55, CBL_1 : (300)+25, CBL_2 : (300)+35, CBL_3 : 220 },
+            { "시간" : "15:00", Load : 350, CBL : (350)-56, CBL_1 : (350)+26, CBL_2 : (350)+36, CBL_3 : 360 },
+            { "시간" : "16:00", Load : 345, CBL : (345)-57, CBL_1 : (345)+27, CBL_2 : (345)+37, CBL_3 : 400 },
+            { "시간" : "17:00", Load : 340, CBL : (340)-58, CBL_1 : (340)+28, CBL_2 : (340)+38, CBL_3 : 410 },
+            { "시간" : "18:00", Load : 335, CBL : (335)-59, CBL_1 : (335)+29, CBL_2 : (335)+39, CBL_3 : 420 },
+            { "시간" : "19:00", Load : 270, CBL : (270)-50, CBL_1 : (270)+20, CBL_2 : (270)+30, CBL_3 : 450 },
+            { "시간" : "20:00", Load : 190, CBL : (190)-51, CBL_1 : (190)+21, CBL_2 : (190)+31, CBL_3 : 400 },
+            { "시간" : "21:00", Load : 230, CBL : (230)-52, CBL_1 : (230)+22, CBL_2 : (230)+32, CBL_3 : 300 },
+            { "시간" : "22:00", Load : 250, CBL : (250)-53, CBL_1 : (250)+23, CBL_2 : (250)+33, CBL_3 : 300 },
+            { "시간" : "23:00", Load : 245, CBL : (245)-54, CBL_1 : (245)+24, CBL_2 : (245)+34, CBL_3 : 270 },
+        ];
+        var obj = builder("#chart3", {
+            width: 900,
+            height : 450,
+            theme : "classic",
+            axis : {
+                x : {
+                    type : "block",
+                    domain : "시간",
+                    line : true,
+                    textRotate : -50
+                },
+                y : {
+                    type : "range",
+                    domain : [0, 500],
+                    step : 10
+                    },
+                data : data
+            },
+            brush : [
+                {
+                    type : "line",
+                    active : activeIndex,
+                    activeEvent : "click",
+                    target : [ "Load", "CBL", "CBL_1", "CBL_2", "CBL_3" ],
+                    colors : [ "#ff0000", "#ffaa00", "#009641", "#0070d1", "#000000" ]
+                },
+                // {
+                //     type : "scatter", 
+                //     target : [ "Load", "CBL", "CBL_1", "CBL_2", "CBL_3" ], 
+                //     colors : [ "#ff0000", "#ffaa00", "#009641", "#0070d1", "#000000" ]
+                // }
+            ],
+            widget : [
+                { type : "title", text : "시간대별 전력사용량", orient : "bottom", color : [ "#337ab7" ],  dy : 18 },
+                { 
+                    type : "legend" , 
+                    orient : "top", 
+                    dy : 25,
+                    filter : true
+                },
+                { type : "tooltip", brush : [ 1, 3, 5, 7, 9 ] }
+            ],
+            event : {
+                "mousedown" : function(d) {
+                    activeIndex = d.dataIndex;
+                },
+                "legend.filter" : function(target) {
+                    this.updateBrush(0, { active: activeIndex });
+                }
+            }
+        });
+
+        // 차트 4
+        var obj = builder("#chart4", {
+            width: 850,
+            height : 450,
+            theme : "classic",
+            axis : {
+                x : {
+                    type : "fullblock",
+                    domain : [ "2021-06-08", "2021-06-10", "2021-06-14", "2021-06-16", "2021-06-18", "2021-06-22", "2021-06-24", "2021-06-28", "2021-06-30", "2021-07-01", "2021-07-08" ],
+                    line : true
+                },
+                y : {
+                    type : "range",
+                    // domain : function(d) {
+                    //         return Math.max(d.rrmse);
+                    //     },
+                    domain : [ 0, 0.25 ],
+                    step : 5
+                    },
+                data :  [
+                    { "변화추이" : 0.13 },
+                    { "변화추이" : 0.14 },
+                    { "변화추이" : 0.20 },
+                    { "변화추이" : 0.24 },
+                    { "변화추이" : 0.23 },
+                    { "변화추이" : 0.23 },
+                    { "변화추이" : 0.22 },
+                    { "변화추이" : 0.22 },
+                    { "변화추이" : 0.21 },
+                    { "변화추이" : 0.20 },
+                    { "변화추이" : 0.23 }
+                ]
+            },
+            brush : [
+                {
+                    type : "line",
+                    symbol : "curve",
+                    target : [ "변화추이" ]
+                },
+                {
+                    type : "scatter",
+                    target : [ "변화추이" ],
+                }
+            ],
+            widget : [
+                { type : "title", text : "RRMSE 변동성", orient : "bottom", color : [ "#337ab7" ],  dy : 18 },
+                { type : "legend" , orient : "top", dy : 25},
+                { type : "tooltip", brush : 1 }
+            ]
+        });
+
+        // 차트 5
+        var obj = builder("#chart5", {
+            width: 1000,
+            height : 500,
+            theme : "classic",
+            axis : {
+                x : {
+                    type : "fullblock",
+                    domain : [ "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00"
+                             , "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" ],
+                    line : true
+                },
+                y : {
+                    type : "range",
+                    // domain : function(d) {
+                    //         return Math.max(d.rrmse);
+                    //     },
+                    domain : [ 0, 450 ],
+                    step : 9
+                    },
+                data :  [
+                    { "실제값": 300,  "예측값": 290 },
+                    { "실제값": 240,  "예측값": 200 },
+                    { "실제값": 280,  "예측값": 270 },
+                    { "실제값": 300,  "예측값": 280 },
+                    { "실제값": 295,  "예측값": 275 },
+                    { "실제값": 300,  "예측값": 280 },
+                    { "실제값": 285,  "예측값": 260 },
+                    { "실제값":  90,  "예측값": 145 },
+                    { "실제값": 145,  "예측값": 160 },
+                    { "실제값": 330,  "예측값": 310 },
+                    { "실제값": 390,  "예측값": 410 },
+                    { "실제값": 390,  "예측값": 400 },
+                    { "실제값": 400,  "예측값": 400 },
+                    { "실제값": 290,  "예측값": 270 },
+                    { "실제값": 340,  "예측값": 340 },
+                    { "실제값": 420,  "예측값": 420 },
+                    { "실제값": null, "예측값": 410 },
+                    { "실제값": null, "예측값": 395 },
+                    { "실제값": null, "예측값": 400 },
+                    { "실제값": null, "예측값": 255 },
+                    { "실제값": null, "예측값": 180 },
+                    { "실제값": null, "예측값": 280 },
+                    { "실제값": null, "예측값": 300 },
+                    { "실제값": null, "예측값": 295 },
+                ]
+            },
+            brush : [
+                {
+                    type : "line",
+                    symbol : "curve",
+                    target : [ "실제값", "예측값" ],
+                    colors : [ "#0070d1", "#ff0000" ]
+                },
+                {type : "scatter", target : [ "실제값" ], colors : [ "#0070d1" ]},
+
+                {type : "line", symbol : "curve", target : [ "예측값" ], colors : [ "#ff0000" ]},
+                {type : "scatter", target : [ "예측값" ], colors : [ "#ff0000" ]}
+            ],
+            widget : [
+                { type : "title", text : "전력수요 예측현황", orient : "bottom", color : [ "#337ab7" ],  dy : 18 },
+                { type : "legend" , orient : "top", dy : 25},
+                { type : "tooltip", brush : 1 },{ type : "tooltip", brush : 3 }
+            ]
+        });
+
+
+        // 차트 6
+        var data = [
+            { "시간" : "00:00", "사용량" : 200, "역률" : 0.98 },
+            { "시간" : "01:00", "사용량" : 220, "역률" : 0.99 },
+            { "시간" : "02:00", "사용량" : 200, "역률" : 0.99 },
+            { "시간" : "03:00", "사용량" : 190, "역률" : 0.99 },
+            { "시간" : "04:00", "사용량" : 180, "역률" : 0.99 },
+            { "시간" : "05:00", "사용량" : 220, "역률" : 0.99 },
+            { "시간" : "06:00", "사용량" : 230, "역률" : 1.00 },
+            { "시간" : "07:00", "사용량" : 300, "역률" : 0.98 },
+            { "시간" : "08:00", "사용량" : 350, "역률" : 0.94 },
+            { "시간" : "09:00", "사용량" : 600, "역률" : 0.94 },
+            { "시간" : "10:00", "사용량" : 650, "역률" : 0.91 },
+            { "시간" : "11:00", "사용량" : 700, "역률" : 0.89 },
+            { "시간" : "12:00", "사용량" : 720, "역률" : 0.98 },
+            { "시간" : "13:00", "사용량" : 500, "역률" : 0.94 },
+            { "시간" : "14:00", "사용량" : 550, "역률" : 0.94 },
+            { "시간" : "15:00", "사용량" : 800, "역률" : 0.94 },
+            { "시간" : "16:00", "사용량" : 900, "역률" : 0.97 },
+            { "시간" : "17:00", "사용량" : 700, "역률" : 0.91 },
+            { "시간" : "18:00", "사용량" : 500, "역률" : 0.93 },
+            { "시간" : "19:00", "사용량" : 300, "역률" : 0.94 },
+            { "시간" : "20:00", "사용량" : 200, "역률" : 0.86 },
+            { "시간" : "21:00", "사용량" : 250, "역률" : 0.61 },
+            { "시간" : "22:00", "사용량" : 250, "역률" : 0.72 },
+            { "시간" : "23:00", "사용량" : 200, "역률" : 0.94 }
+        ];
+        var obj = builder("#chart6", {
+            width: 1000,
+            height : 500,
+            theme : "classic",
+            axis : [{
+                x : {
+                    type : "fullblock",
+                    domain : "시간",
+                    line : true
+                },
+                y : {
+                    //hide : true
+                    type : "range",
+                    domain: [ 0, 1000 ],
+                    step : 10,
+                    color : "#7cb5ec"
+                },
+                data : data
+            },{
+                y : {
+                    domain: [ 0, 1 ],
+                    dist : 10,
+                    color: "#90ed7d",
+                    orient : "right"
+                },
+                extend : 0
+            }],
+            brush : [
+                { type : "column", target : ["사용량"], colors : [ "#7cb5ec" ], outerPadding : 5 },
+                { type : "line", target : ["역률"], axis : 1, colors: [ "#90ed7d" ], symbol : "curve" },
+                { type : "scatter", target : ["역률"], axis : 1, colors: [ "#90ed7d" ], symbol : "triangle", size : 10 }
+            ],
+            widget : [
+                //{ type : "title", text : "Combination Sample" },
+                { type : "title", text : "역률진단현황 모니터링", orient : "bottom", color : [ "#337ab7" ],  dy : 18 },
+                //{ type : "legend", brush : [ 0, 1, 2 ], align : "end" }
+                { type : "legend" , brush : [ 0, 1 ], orient : "top", dy : 25},
+                { type : "tooltip", brush : 0 },{ type : "tooltip", brush : 2 }
+            ]
+        });
+
+    });
+
+
+    //json table - 시간 테이블
+    $(function(){
+        var target = $('#target_time');
+        $.getJSON('json/data4.json', function(timeData){
+            $.each(timeData, function(i, timeData){
+                var add_data = '';
+                add_data += '<tr>';
+
+                add_data += '<th>';
+                add_data += timeData.time;
+                add_data += '</th>';
+
+                add_data += '<td>';
+                add_data += timeData.actPower;
+                add_data += '</td>';
+
+                add_data += '<td>';
+                add_data += timeData.voltage;
+                add_data += '</td>';
+
+                add_data += '<td>';
+                add_data += timeData.electric;
+                add_data += '</td>';
+
+                add_data += '<td>';
+                add_data += timeData.appPower;
+                add_data += '</td>';
+
+                add_data += '<td>';
+                add_data += timeData.powerFactor;
+                add_data += '</td>';
+
+                add_data += '</tr>';
+                target.append(add_data);
+            });
+        });
+    });
+
+    //json table - 설비 테이블
+    $(function(){
+        var target = $('#target_facility');
+        $.getJSON('json/facility_data.json', function(facilityData){
+            $.each(facilityData, function(i, facilityData){
+                var add_data = '';
+                add_data += '<tr>';
+
+                if(facilityData.value === 1){
+                    add_data += '<th><input type="checkbox" checked></th>';
+                }else{
+                    add_data += '<th><input type="checkbox"></th>';
+                }
+
+                add_data += '<th>';
+                add_data += facilityData.name_kor;
+                add_data += '</th>';
+
+                add_data += '<td>';
+                add_data += facilityData.actPower;
+                add_data += '</td>';
+
+                add_data += '<td>';
+                add_data += facilityData.voltage;
+                add_data += '</td>';
+
+                add_data += '<td>';
+                add_data += facilityData.electric;
+                add_data += '</td>';
+
+                add_data += '<td>';
+                add_data += facilityData.appPower;
+                add_data += '</td>';
+
+                add_data += '<td>';
+                add_data += facilityData.powerFactor;
+                add_data += '</td>';
+
+                add_data += '</tr>';
+                target.append(add_data);
+            });
+        });
+    });
+
+
+</script>
+
+</html>
