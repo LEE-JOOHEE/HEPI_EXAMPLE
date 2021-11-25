@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 시계</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style> 
+        html,body { height: 100%; } 
+        body { background: #0f3854; background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%); 
+            background-size: 100%; } p { margin: 0; padding: 0; }
+        #clock { font-family: 'Share Tech Mono', monospace; color: #ffffff; text-align: center; 
+            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); 
+            color: #daf6ff; text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0); }
+        .time { letter-spacing: 0.05em; font-size: 80px; padding: 5px 0; } 
+        .date { letter-spacing: 0.1em; font-size: 24px; } 
+        .text { letter-spacing: 0.1em; font-size: 12px; padding: 20px 0 0; } 
+    </style>
+
+</head>
+<body>
+    <div id="clock"> 
+        <p class="date"></p> 
+        <p class="time"></p> 
+        <p class="text">DIGITAL CLOCK with CodingRestaurant</p> 
+    </div>
+
+    <script>
+        const date = document.querySelector('.date'); 
+        const time = document.querySelector('.time'); 
+        function setDate() { 
+            const now = new Date(); 
+            const dayNames = ['일', '월', '화', '수', '목', '금', '토']; 
+            const day = dayNames[now.getDay()]; 
+            let second = now.getSeconds(); 
+            let minute = now.getMinutes(); 
+            let hour = now.getHours(); 
+            let month = now.getMonth() + 1; 
+            let today = now.getDate(); 
+            
+            hour = hour < 10 ? '0' + hour : hour; 
+            today = today < 10 ? '0' + today : today; 
+            month = month < 10 ? '0' + month : month; 
+            minute = minute < 10 ? '0' + minute : minute; 
+            second = second < 10 ? '0' + second : second; 
+            date.innerText = now.getFullYear()+ "-" + month + "-" + today + " " + day; 
+            time.innerText = hour + " : " + minute + " : " + second; 
+        } 
+        setInterval(setDate, 1000); 
+        setDate(); 
+    </script>
+</body>
+</html>
