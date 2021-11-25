@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부트스트랩 테이블 CRUD</title>
+    <!-- paging font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- table customizing css -->
+    <link rel="stylesheet" href="/css/boot_table_ex.css">
+
+    <!-- jQuery, bootstrap, tableManager js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="/js/tableManager.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-8"><h2>테이블명<b>(CRUD)</b></h2></div>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                        </div>
+                    </div>
+                    <div class="row interval">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                            <div class="search-box">
+                                <div class="input-group">								
+                                    <input type="text" id="search" class="form-control" placeholder="전체 검색">
+                                    <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-bordered table-striped" id="table_ex">
+                    <thead>
+                        <tr>
+                            <th class="sorterHeader">회사명</th>
+                            <th>수신일</th>
+                            <th>온도<span>(℃)</span></th>
+                            <th>습도<span>(%)</span></th>
+                            <th>수정 <span>|</span> 삭제</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>대한정밀공업</td>
+                            <td>2021-09-01</td>
+                            <td>25.8</td>
+                            <td>74.7</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>임실태양광</td>
+                            <td>2021-09-04</td>
+                            <td>22.8</td>
+                            <td>91.6</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>태양산업</td>
+                            <td>2021-09-07</td>
+                            <td>25</td>
+                            <td>76.7</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>대한정밀공업</td>
+                            <td>2021-09-01</td>
+                            <td>25.8</td>
+                            <td>74.7</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>임실태양광</td>
+                            <td>2021-09-04</td>
+                            <td>22.8</td>
+                            <td>91.6</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>태양산업</td>
+                            <td>2021-09-07</td>
+                            <td>25</td>
+                            <td>76.7</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>대한정밀공업</td>
+                            <td>2021-09-01</td>
+                            <td>25.8</td>
+                            <td>74.7</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>임실태양광</td>
+                            <td>2021-09-04</td>
+                            <td>22.8</td>
+                            <td>91.6</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>태양산업</td>
+                            <td>2021-09-07</td>
+                            <td>25</td>
+                            <td>76.7</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>대한정밀공업</td>
+                            <td>2021-09-01</td>
+                            <td>25.8</td>
+                            <td>74.7</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>임실태양광</td>
+                            <td>2021-09-04</td>
+                            <td>22.8</td>
+                            <td>91.6</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>태양산업</td>
+                            <td>2021-09-07</td>
+                            <td>25</td>
+                            <td>76.7</td>
+                            <td>
+                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>     
+</body>
+<script>
+
+$(document).ready(function(){
+	var actions = $("table td:last-child").html();
+	// Append table with add row form on add new button click
+    $(".add-new").click(function(){
+		$(this).attr("disabled", "disabled");
+		var index = $("table tbody tr:last-child").index();
+        var row = '<tr>' +
+            '<td><input type="text" class="form-control" name="compNm" id="compNm"></td>' +
+            '<td><input type="text" class="form-control" name="date" id="date"' +
+                'onkeypress="return checkNumber(event)" placeholder="날짜만 입력하세요"></td>' +
+            '<td><input type="text" class="form-control" name="temperature" id="temperature"' + 
+                'onkeypress="return checkNumber(event)" placeholder="숫자만 입력하세요"></td>' +
+            '<td><input type="text" class="form-control" name="humidity" id="humidity"' + 
+                'onkeypress="return checkNumber(event)" placeholder="숫자만 입력하세요"></td>' +
+			'<td>' + actions + '</td>' +
+        '</tr>';
+    	$("table").append(row);		
+		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+    });
+
+	// Add row on add button click
+	$(document).on("click", ".add", function(){
+		var empty = false;
+		var input = $(this).parents("tr").find('input[type="text"]');
+        input.each(function(){
+			if(!$(this).val()){
+				$(this).addClass("error");
+				empty = true;
+			} else{
+                $(this).removeClass("error");
+            }
+		});
+		$(this).parents("tr").find(".error").first().focus();
+		if(!empty){
+			input.each(function(){
+				$(this).parent("td").html($(this).val());
+			});			
+			$(this).parents("tr").find(".add, .edit").toggle();
+			$(".add-new").removeAttr("disabled");
+		}		
+    });
+	// Edit row on edit button click
+	$(document).on("click", ".edit", function(){		
+        // $(this).parents("tr").find("td:not(:last-child)").each(function(){
+        //     $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+        // });	
+
+        /* customizing */
+        $(this).parents("tr").find("td:nth-child(1)").each(function(){
+            console.log($(this).find("td:nth-child(1)"));
+            $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+		});
+        $(this).parents("tr").find("td:nth-child(2)").each(function(){
+            console.log($(this).find("td:nth-child(1)"));
+            $(this).html('<input type="text" class="form-control" onkeypress="return checkNumber(event)" placeholder="날짜만 입력하세요" value="' + $(this).text() + '">');
+		});
+        $(this).parents("tr").find("td:nth-child(3)").each(function(){
+            console.log($(this).find("td:nth-child(1)"));
+            $(this).html('<input type="text" class="form-control" onkeypress="return checkNumber(event)" placeholder="숫자만 입력하세요" value="' + $(this).text() + '">');
+		});
+        $(this).parents("tr").find("td:nth-child(4)").each(function(){
+            console.log($(this).find("td:nth-child(1)"));
+            $(this).html('<input type="text" class="form-control" onkeypress="return checkNumber(event)" placeholder="숫자만 입력하세요" value="' + $(this).text() + '">');
+		});
+        /* customizing end */
+        
+		$(this).parents("tr").find(".add, .edit").toggle();
+		$(".add-new").attr("disabled", "disabled");
+    });
+	// Delete row on delete button click
+	$(document).on("click", ".delete", function(){
+        $(this).parents("tr").remove();
+		$(".add-new").removeAttr("disabled");
+    });
+
+    // Filter table rows based on searched term
+    $("#search").on("keyup", function() {
+        var term = $(this).val().toLowerCase();
+        console.log(term);
+        $("table tbody tr").each(function(){
+            $row = $(this);
+            var compNm = $row.find("td:nth-child(1)").text().toLowerCase();
+            var date = $row.find("td:nth-child(2)").text().toLowerCase();
+            var temperature = $row.find("td:nth-child(3)").text().toLowerCase();
+            var humidity = $row.find("td:nth-child(4)").text().toLowerCase();
+            // console.log(compNm, date, temperature, humidity);
+            if(compNm.search(term) < 0 && date.search(term) < 0 
+            && temperature.search(term) < 0 && humidity.search(term) < 0){                
+                $row.hide();
+            }else{
+                $row.show();
+            }
+        });
+    });
+
+});
+
+/* checkNumber */
+function checkNumber(event) {
+    if(event.key === '.' || event.key === '-' || event.key >= 0 && event.key <= 9) {
+        return true;
+    }
+    return false;
+}
+
+// basic usage
+$('#table_ex').tablemanager({
+    // firstSort: [[3,0],[2,0],[1,'asc']],
+    disable: ["last"],
+    // appendFilterby: true,
+    // dateFormat: [[4,"mm-dd-yyyy"]],
+    debug: true,
+    vocabulary: {
+        // voc_filter_by: 'Filter By',
+        // voc_type_here_filter: 'Filter...',
+        // voc_show_rows: 'Rows Per Page'
+        voc_show_rows: '페이지당 행 수 '
+    },
+    pagination: true,
+    showrows: [5,10,20,50,100],
+    disableFilterBy: [1]
+});
+
+
+
+</script>
+</html>

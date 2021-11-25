@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/jui-all/dist/ui.css" />
+    <link rel="stylesheet" href="/jui-all/dist/ui-jennifer.css" />
+    <link rel="stylesheet" href="/jui-grid-master/dist/jui-grid.classic.css" />
+    <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script defer type="text/JavaScript" src="/js/jui/jui-ui.min.js"></script>
+    <script type="text/JavaScript" src="/js/jui/jui-core.min.js"></script>
+    <script type="text/JavaScript" src="/jui-grid-master/dist/jui-grid.min.js"></script>
+    <script type="text/JavaScript" src="/js/jui/jui-chart.min.js"></script>
+    <style>
+        #table_8 th:first-child{text-align: center;}
+        #table_8 td:first-child{text-align: center;}
+    </style>
+</head>
+<bod class="jui jennifer">
+    <div class="col col-6">
+        <!-- <button class="btn small" style="float: right; margin-bottom: 5px;" onclick="alert(JSON.stringify(table_8.listChecked()[0].index))">삭제</button> -->
+        <button class="btn small" style="float: right; margin-bottom: 5px;" onclick="table_8.remove('1')">삭제</button>
+        <table id="table_8" class="table classic">
+            <thead>
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <script id="tpl_row" type="text/template">
+            <tr>
+                <td><!= row.index !></td>
+                <td><!= name !></td>
+                <td><!= age !></td>
+                <td><!= location !></td>
+            </tr>
+        </script>
+    </div>
+
+</bod>
+
+<script>
+jui.ready([ "grid.table" ], function(table) {
+    table_8 = table("#table_8", {
+        fields: [ null, "name", "age", "location" ],
+        data: [
+            { name: "Hong", age: "20", location: "Ilsan" },
+            { name: "Jung", age: "30", location: "Seoul" },
+            { name: "Park", age: "15", location: "Yeosu" },
+            { name: "Kang", age: "32", location: "Seoul" },
+            { name: "Song", age: "12", location: "Gwangju" },
+            { name: "Yoon", age: "22", location: "Damyang" },
+            { name: "Kim", age: "33", location: "Busan" },
+            { name: "Hwang", age: "21", location: "Seoul" }
+        ],
+        editRow: [ "name", "age" ],
+        resize: true,
+        sort: true,
+        scroll: true,
+        scrollHeight: 150,
+        event: {
+            editend: function(row) {
+                for(var key in row.data) {
+                    if(key == "age" && isNaN(row.data[key])) {
+                        alert("나이는 숫자만 입력해주세요.");
+                        return false;
+                    }
+                }
+            },
+            click: function(row, e) {
+                if($(row.element).hasClass("checked")) {
+                    this.uncheck(row.index);
+                } else {
+                    this.check(row.index);
+                    console.log(row.index);
+                }
+            }
+        },
+        tpl: {
+            row: $("#tpl_row").html()
+        }
+    });
+});
+</script>
+
+</html>
